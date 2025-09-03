@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu Chuyện Về Công Chúa Mai Chi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Calm Harmony (Parchment) -->
+    <!-- Application Structure Plan: A vertical-scrolling, single-page application structured as an interactive storyboard with six distinct chapters. This design choice transforms the linear narrative into a more engaging, guided reading experience. A fixed navigation bar allows for both sequential scrolling and direct access to specific chapters, enhancing user control. The flow is primarily linear, mimicking reading a story, but with modern web interactions like scroll-triggered animations to improve engagement. -->
+    <!-- Visualization & Content Choices: The source is a text-only narrative. Goal: Present the story interactively. Method: Textual content is broken into thematic sections (chapters) and presented using styled HTML/CSS with Tailwind. Instead of charts, simple Unicode icons (e.g., 🏰, 🔑, ❤️) are used as visual cues for each chapter. Interaction: Scroll-based fade-in animations (using JS Intersection Observer) enhance the storytelling flow. Clickable character names could trigger a simple popover with details (handled by JS), providing a layer of exploration. Justification: This approach is ideal for narrative content, focusing on presentation and engagement rather than data analysis. Library/Method: Vanilla JS, Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #ca8a04; 
+        }
+        .nav-link.active {
+            color: #ca8a04;
+            border-bottom-width: 2px;
+            border-bottom-color: #ca8a04;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-stone-800">
+
+    <header id="main-header" class="bg-orange-100/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <ul class="flex justify-center items-center space-x-4 md:space-x-8 text-sm md:text-base">
+                <li><a href="#intro" class="nav-link font-semibold text-stone-600 pb-1">Mở Đầu</a></li>
+                <li><a href="#captivity" class="nav-link font-semibold text-stone-600 pb-1">Giam Cầm</a></li>
+                <li><a href="#journey" class="nav-link font-semibold text-stone-600 pb-1">Hành Trình</a></li>
+                <li><a href="#rescue" class="nav-link font-semibold text-stone-600 pb-1">Giải Cứu</a></li>
+                <li><a href="#love" class="nav-link font-semibold text-stone-600 pb-1">Tình Yêu</a></li>
+                <li><a href="#ending" class="nav-link font-semibold text-stone-600 pb-1">Kết Thúc</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-amber-800 mb-4 tracking-wider">Câu Chuyện Cổ Tích Về Công Chúa Mai Chi</h1>
+                <p class="text-lg text-stone-600 max-w-3xl mx-auto">Một câu chuyện tương tác về lòng dũng cảm, tình yêu và định mệnh. Hãy cuộn xuống để khám phá hành trình của công chúa và vị hoàng tử đã thay đổi cuộc đời nàng mãi mãi.</p>
+            </div>
+
+            <section id="intro" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">🌪️</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương I: Cơn Lốc Bất Ngờ</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Vào một buổi chiều nọ, khi công chúa Mai Chi đang đi dạo trong vườn hoa hồng của mình, một hiện tượng tự nhiên bất thường đã xảy ra khi một cơn lốc xoáy lạ lùng xuất hiện đột ngột. Công chúa không kịp phản ứng và bị cuốn vào, và khi tỉnh dậy, nàng thấy bản thân đang ở trong một hầm ngục u ám và lạnh lẽo, một khu vực bí mật dưới lòng lâu đài mà không ai biết đến.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="w-64 h-64 bg-amber-200 rounded-full flex items-center justify-center shadow-lg">
+                             <span class="text-8xl">🏰</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="captivity" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                 <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="flex justify-center order-last md:order-first">
+                         <div class="w-64 h-64 bg-stone-300 rounded-lg flex items-center justify-center shadow-lg rotate-3">
+                             <span class="text-8xl">⛓️</span>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">😔</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương II: Những Ngày Giam Cầm</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Bị giam hãm trong bóng tối, công chúa Mai Chi vẫn duy trì sự bình tĩnh đáng kinh ngạc, không hề hoảng loạn. Nàng đã nỗ lực tìm kiếm lối thoát, tuy nhiên, những bức tường đá kiên cố và cánh cửa sắt nặng nề đã vô hiệu hóa mọi nỗ lực của nàng. Nàng nhận thức được rằng cần phải chờ đợi sự giải cứu, đồng thời băn khoăn liệu có ai có thể biết được vị trí của mình hay không.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="journey" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">🗺️</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương III: Hành Trình Của Hoàng Tử</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Trong cùng khoảng thời gian đó, tại một vương quốc lân cận, hoàng tử Thiên An, một nhân vật được biết đến với lòng dũng cảm, sự thông thái và tấm lòng nhân hậu, đang thực hiện một chuyến hành trình với mục đích khám phá. Khi đi ngang qua vương quốc của Mai Chi, anh đã nhận thấy một nguồn năng lượng huyền bí tỏa ra từ khu vực lâu đài và quyết định tiến hành thâm nhập để điều tra.</p>
+                    </div>
+                     <div class="flex justify-center">
+                         <div class="w-64 h-64 bg-sky-200 rounded-full flex items-center justify-center shadow-lg">
+                             <span class="text-8xl">🤴</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rescue" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="flex justify-center order-last md:order-first">
+                         <div class="w-64 h-64 bg-amber-200 rounded-lg flex items-center justify-center shadow-lg -rotate-3">
+                             <span class="text-8xl">⚔️</span>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">🔑</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương IV: Cuộc Giải Cứu</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Sau một thời gian dài khám phá, Thiên An cuối cùng đã phát hiện ra một lối đi bí mật dẫn xuống một khu vực hầm ngục. Với ngọn đuốc trên tay, anh đã chiếu sáng con đường u ám, và khi đến cuối đường hầm, anh thấy một cánh cửa sắt lớn bị khóa chặt... Thiên An sử dụng thanh kiếm để chặt đứt dây xích, và sau đó phá tan ổ khóa bằng một cú đá mạnh. Cánh cửa bật mở, cho phép ánh sáng từ ngọn đuốc chiếu rọi toàn bộ không gian hầm ngục. Hình ảnh công chúa Mai Chi hiện ra.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="love" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                 <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">💖</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương V: Tình Yêu Nảy Nở</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Sau khi được giải thoát, Mai Chi và Thiên An cùng nhau trở về vương quốc của nàng. Trong suốt hành trình, họ đã có những cuộc trò chuyện sâu sắc, chia sẻ những câu chuyện về cuộc sống và hoài bão cá nhân. Qua đó, họ nhận thấy sự tương đồng đáng kinh ngạc giữa hai người và một mối quan hệ tình cảm đã bắt đầu hình thành. Khi trở về, họ đã nhận được sự chúc phúc của hoàng gia và Thiên An đã cầu hôn nàng.</p>
+                    </div>
+                    <div class="flex justify-center">
+                         <div class="w-64 h-64 bg-rose-200 rounded-full flex items-center justify-center shadow-lg">
+                             <span class="text-8xl">🤝</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="ending" class="story-section min-h-[60vh] flex items-center py-16 fade-in-section">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="flex justify-center order-last md:order-first">
+                         <div class="w-64 h-64 bg-yellow-200 rounded-lg flex items-center justify-center shadow-lg rotate-3">
+                             <span class="text-8xl">👑</span>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-5xl">📜</span>
+                        <h2 class="text-3xl font-bold text-amber-700 mt-4 mb-4">Chương VI: Kết Thúc Có Hậu</h2>
+                        <p class="text-lg leading-relaxed text-stone-700">Ngay sau đó, một hôn lễ trang trọng và lộng lẫy đã được cử hành. Hoàng tử Thiên An và công chúa Mai Chi kết hôn, và hai người đã cùng nhau xây dựng một cuộc sống hôn nhân vô cùng viên mãn và hạnh phúc. Họ cùng nhau trị vì vương quốc, áp dụng các chính sách công bằng và nhân đạo, mang lại sự thịnh vượng và hòa bình cho toàn bộ thần dân. Câu chuyện về mối tình của họ đã trở thành một giai thoại bất hủ, được lưu truyền qua nhiều thế hệ.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="bg-orange-100 mt-16">
+        <div class="container mx-auto px-6 py-4 text-center text-stone-600">
+            <p>&copy; 2025. Một câu chuyện được tái hiện bằng công nghệ web.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.25
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        navLinks.forEach(link => {
+                           link.classList.remove('active');
+                           if(link.getAttribute('href').substring(1) === entry.target.id) {
+                               link.classList.add('active');
+                           }
+                        });
+
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            let header = document.getElementById('main-header');
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+            }, false);
+
+        });
+    </script>
+</body>
+</html>
